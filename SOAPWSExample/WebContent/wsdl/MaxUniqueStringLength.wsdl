@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://soaptest.msys.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://soaptest.msys.com" xmlns:intf="http://soaptest.msys.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://soaptest.msys.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getUniqueLengthByJobId">
+    <complexType>
+     <sequence>
+      <element name="jobID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUniqueLengthByJobIdResponse">
+    <complexType>
+     <sequence>
+      <element name="getUniqueLengthByJobIdReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMaxUniqueStringLength">
+    <complexType>
+     <sequence>
+      <element name="commaSepratedString" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMaxUniqueStringLengthResponse">
+    <complexType>
+     <sequence>
+      <element name="getMaxUniqueStringLengthReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getMaxUniqueStringLengthResponse">
+
+      <wsdl:part element="impl:getMaxUniqueStringLengthResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUniqueLengthByJobIdRequest">
+
+      <wsdl:part element="impl:getUniqueLengthByJobId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUniqueLengthByJobIdResponse">
+
+      <wsdl:part element="impl:getUniqueLengthByJobIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMaxUniqueStringLengthRequest">
+
+      <wsdl:part element="impl:getMaxUniqueStringLength" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="MaxUniqueStringLength">
+
+      <wsdl:operation name="getUniqueLengthByJobId">
+
+         <wsdl:input message="impl:getUniqueLengthByJobIdRequest" name="getUniqueLengthByJobIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUniqueLengthByJobIdResponse" name="getUniqueLengthByJobIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMaxUniqueStringLength">
+
+         <wsdl:input message="impl:getMaxUniqueStringLengthRequest" name="getMaxUniqueStringLengthRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMaxUniqueStringLengthResponse" name="getMaxUniqueStringLengthResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="MaxUniqueStringLengthSoapBinding" type="impl:MaxUniqueStringLength">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getUniqueLengthByJobId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUniqueLengthByJobIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUniqueLengthByJobIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMaxUniqueStringLength">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMaxUniqueStringLengthRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMaxUniqueStringLengthResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="MaxUniqueStringLengthService">
+
+      <wsdl:port binding="impl:MaxUniqueStringLengthSoapBinding" name="MaxUniqueStringLength">
+
+         <wsdlsoap:address location="http://localhost:8080/SOAPWSExample/services/MaxUniqueStringLength"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

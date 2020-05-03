@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MaxUniqueStringLengthService WSDL service -->
+
+  <service name="MaxUniqueStringLength" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://soaptest.msys.com"/>
+      <parameter name="wsdlServiceElement" value="MaxUniqueStringLengthService"/>
+      <parameter name="schemaQualified" value="http://soaptest.msys.com"/>
+      <parameter name="wsdlServicePort" value="MaxUniqueStringLength"/>
+      <parameter name="className" value="com.msys.soaptest.MaxUniqueStringLength"/>
+      <parameter name="wsdlPortType" value="MaxUniqueStringLength"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://soaptest.msys.com" xmlns:retNS="http://soaptest.msys.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getUniqueLengthByJobId" qname="operNS:getUniqueLengthByJobId" returnQName="retNS:getUniqueLengthByJobIdReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://soaptest.msys.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:jobID" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://soaptest.msys.com" xmlns:retNS="http://soaptest.msys.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getMaxUniqueStringLength" qname="operNS:getMaxUniqueStringLength" returnQName="retNS:getMaxUniqueStringLengthReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://soaptest.msys.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:commaSepratedString" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="getMaxUniqueStringLength getUniqueLengthByJobId"/>
+
+  </service>
+</deployment>
